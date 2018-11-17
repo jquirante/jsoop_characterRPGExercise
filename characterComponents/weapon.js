@@ -13,8 +13,17 @@ class Weapon{
 
 	}
 	use(){
+		var damageCount = 0;
+		for ( var i = 0; i < this.damageStats.count; i++) {
+			var roll = Math.floor(Math.random() * this.damageStats.dice) + 1;
+			damageCount += roll;
+		}
+		
+		return damageCount;
 
 	}
+	
+
 	remove(){
 		
 	}
@@ -22,14 +31,16 @@ class Weapon{
 		//bludgeoning weapons swings
 		//slashing weapons slashes
 		//piercing weapons stabs
+		if (this.type === 'bludgeoning') {
+			return 'swings';
+
+		} else if (this.type === "slashing") {
+			return 'slashes';
+		} else {
+			return 'stabs';
+		}
 	}
 	getData(){
-		var damageStats = 0;
-		for ( var i = 0; i < this.damageStats.count; i++) {
-			var roll = Math.floor(Math.random() * 3) + 1;
-			damageStats += roll;
-		}
 		
-
 	}
 }
